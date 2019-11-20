@@ -1,6 +1,7 @@
 package br.com.fean.si.poo1.sistemadenuncias.modelo;
 
 public class Funcionario extends PessoaFisica {
+
     private String matricula;
     private String cargo;
 
@@ -9,8 +10,6 @@ public class Funcionario extends PessoaFisica {
         this.matricula = matricula;
         this.cargo = cargo;
     }
-    
-    
 
     public String getMatricula() {
         return matricula;
@@ -20,7 +19,12 @@ public class Funcionario extends PessoaFisica {
         return cargo;
     }
 
+    @Override
+    public String toString() {
+        return "[ \"matricula\" : \"" + matricula + "\", \"cargo\" : \"" + cargo 
+                + "\", " + super.toString() + " ]"; 
+    }
     
     
-    
+
 }

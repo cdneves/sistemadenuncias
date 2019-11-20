@@ -1,6 +1,7 @@
 package br.com.fean.si.poo1.sistemadenuncias.modelo;
 
-public class PessoaJuridica  extends Pessoa {
+public class PessoaJuridica extends Pessoa {
+
     private String cnpj;
 
     public PessoaJuridica(String cnpj, String nome, String email, String telefone) {
@@ -16,4 +17,10 @@ public class PessoaJuridica  extends Pessoa {
     public String getDocumento() {
         return cnpj;
     }
+
+    @Override
+    public String toString() {
+        return "{ \"cnpj\" : \"" + this.cnpj + "\", " + super.toString() + " }";
+    }
+
 }

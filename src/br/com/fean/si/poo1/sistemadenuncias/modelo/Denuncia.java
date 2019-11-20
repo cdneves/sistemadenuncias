@@ -1,19 +1,21 @@
 package br.com.fean.si.poo1.sistemadenuncias.modelo;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 public class Denuncia {
+
     private Integer codigo;
-    private static Integer contadorDenuncia;
+    private static int contadorDenuncia;
     private Calendar dataRegistro;
     private String assunto;
     private String denunciaFato;
     private Pessoa denunciante;
     private Pessoa denunciado;
 
-    public Denuncia(Calendar dataRegistro, String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
+    public Denuncia(String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
         this.codigo = ++contadorDenuncia;
-        this.dataRegistro = dataRegistro;
+        this.dataRegistro = Calendar.getInstance();
         this.assunto = assunto;
         this.denunciaFato = denunciaFato;
         this.denunciante = denunciante;
@@ -47,10 +49,17 @@ public class Denuncia {
     public Pessoa getDenunciado() {
         return denunciado;
     }
+    
+    public String getDataRegistroFormatada() {
+        return DateFormat.getDateInstance().format( dataRegistro.getTime() );
+    }
 
-    
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "\"codigo\" : " + this.getCodigo() + ", \"dataRegistro\" : \"" + this.getDataRegistroFormatada() + 
+                "\", \"assunto\" : \"" + this.assunto + "\", \"descricaoFato\" : \"" + 
+                this.denunciaFato + "\", \"nomeDenunciante\" : \"" + this.getDenunciante().getNome() + 
+                "\", \"nomeDenunciado\" : \"" + this.getDenunciado().getNome() + "\"";
+    }
+
 }

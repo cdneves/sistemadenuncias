@@ -6,8 +6,8 @@ public class DenunciaPresencial  extends  Denuncia{
     private String localRegistro;
     private Funcionario responsavelAtendimento;
 
-    public DenunciaPresencial(String localRegistro, Funcionario responsavelAtendimento, Calendar dataRegistro, String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
-        super(dataRegistro, assunto, denunciaFato, denunciante, denunciado);
+    public DenunciaPresencial(String localRegistro, Funcionario responsavelAtendimento, String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
+        super(assunto, denunciaFato, denunciante, denunciado);
         this.localRegistro = localRegistro;
         this.responsavelAtendimento = responsavelAtendimento;
     }
@@ -18,6 +18,12 @@ public class DenunciaPresencial  extends  Denuncia{
 
     public Funcionario getResponsavelAtendimento() {
         return responsavelAtendimento;
+    }
+
+    @Override
+    public String toString() {
+        return "{ " + super.toString() + ", \"localRegistro\" : \"" + localRegistro + 
+                "\", \"responsavelAtendimento\" : \"" + responsavelAtendimento.getNome() + "\" }";
     }
     
     

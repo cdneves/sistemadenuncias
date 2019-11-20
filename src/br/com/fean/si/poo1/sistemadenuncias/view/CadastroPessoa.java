@@ -55,20 +55,23 @@ public class CadastroPessoa {
 
             documento = JOptionPane.showInputDialog("Informe o cpf da Pessoa :");
             p = new PessoaFisica(documento, nome, email, telefone);
-        } 
-        else if (tipoPessoa.equals("2")) {
-           documento = JOptionPane.showInputDialog("Informe o cnpj da Pessoa :");
+        } else if (tipoPessoa.equals("2")) {
+            documento = JOptionPane.showInputDialog("Informe o cnpj da Pessoa :");
             p = new PessoaJuridica(documento, nome, email, telefone);
         }
-         this.pessoas.put(documento, p);
+        this.pessoas.put(documento, p);
     }
 
     private void listar() {
         String dadosPessoas = "";
-
+        boolean primeiraLinha = true;
         for (Pessoa pessoa : pessoas.values()) {
-            dadosPessoas += pessoa.getDocumento()+ ", " + pessoa.getNome() + ", "
-                    + pessoa.getEmail() + ", " + pessoa.getTelefone() + "\n";
+            if (primeiraLinha) {
+                primeiraLinha = false;
+            } else {
+                dadosPessoas += "\n";
+            }
+            dadosPessoas += pessoa;
         }
 
         JTextArea textArea = new JTextArea(20, 50);
@@ -79,4 +82,3 @@ public class CadastroPessoa {
     }
 
 }
-

@@ -6,13 +6,20 @@ public class DenunciaVirtual extends Denuncia {
 
     private String ipMaquina;
 
-    public DenunciaVirtual(String ipMaquina, Calendar dataRegistro, String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
-        super(dataRegistro, assunto, denunciaFato, denunciante, denunciado);
+    public DenunciaVirtual(String ipMaquina, String assunto, String denunciaFato, Pessoa denunciante, Pessoa denunciado) {
+        super(assunto, denunciaFato, denunciante, denunciado);
         this.ipMaquina = ipMaquina;
     }
 
     public String getIpMaquina() {
         return ipMaquina;
     }
+
+    @Override
+    public String toString() {
+        return "{ " + super.toString() + ", \"ipMaquina\" : \"" + ipMaquina + "\" }"; 
+    }
+    
+    
 
 }
